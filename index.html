@@ -1,0 +1,1439 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>REN | Freelance Web Developer</title>
+
+    <meta
+        name="description"
+        content="REN is a freelance web developer creating modern, responsive, and user-friendly websites."
+    >
+
+    <style>
+        /* =========================================
+           1. RESET & GLOBAL STYLES
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: #080b14;
+            color: #f5f7ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           2. BACKGROUND
+        ========================================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -10;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(99, 82, 255, 0.18),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(0, 200, 255, 0.12),
+                    transparent 30%
+                ),
+                #080b14;
+        }
+
+        .background::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(255, 255, 255, 0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 60px 60px;
+
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 80%
+            );
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.4;
+            animation: floating 12s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 260px;
+            height: 260px;
+            background: #635bff;
+            top: 5%;
+            left: -100px;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: #00b7ff;
+            right: -120px;
+            top: 45%;
+            animation-delay: -4s;
+        }
+
+        .orb-3 {
+            width: 220px;
+            height: 220px;
+            background: #9b5cff;
+            bottom: -80px;
+            left: 35%;
+            animation-delay: -7s;
+        }
+
+        @keyframes floating {
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(35px, -30px);
+            }
+        }
+
+        /* =========================================
+           3. NAVIGATION
+        ========================================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            padding: 18px 0;
+
+            background: rgba(8, 11, 20, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: #7d72ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #aeb5c8;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        /* =========================================
+           4. HERO
+        ========================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 120px 0 80px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 8px 14px;
+
+            border: 1px solid rgba(125, 114, 255, 0.25);
+            border-radius: 50px;
+
+            background: rgba(125, 114, 255, 0.08);
+
+            color: #aaa3ff;
+
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+            background: #6dff9b;
+
+            box-shadow: 0 0 12px #6dff9b;
+        }
+
+        .hero h1 {
+            font-size: clamp(4rem, 13vw, 9rem);
+            line-height: 0.85;
+
+            letter-spacing: -7px;
+
+            margin-bottom: 30px;
+        }
+
+        .gradient-text {
+            background:
+                linear-gradient(
+                    100deg,
+                    #ffffff 10%,
+                    #8b7fff 50%,
+                    #4edcff 100%
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            color: #dce0ec;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            color: #929aae;
+
+            font-size: clamp(1rem, 2vw, 1.2rem);
+
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* =========================================
+           5. BUTTONS
+        ========================================= */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            padding: 13px 21px;
+
+            border-radius: 10px;
+
+            font-size: 0.9rem;
+            font-weight: 700;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            color: #080b14;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
+
+        /* =========================================
+           6. SECTION STYLES
+        ========================================= */
+
+        section {
+            padding: 110px 0;
+        }
+
+        .section-label {
+            color: #8177ff;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            color: #929aae;
+            max-width: 650px;
+        }
+
+        /* =========================================
+           7. ABOUT
+        ========================================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.5fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .about-card {
+            position: relative;
+
+            min-height: 330px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(125, 114, 255, 0.12),
+                    rgba(255, 255, 255, 0.025)
+                );
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: "REN";
+
+            position: absolute;
+
+            font-size: 8rem;
+            font-weight: 900;
+            letter-spacing: -8px;
+
+            color: rgba(255, 255, 255, 0.025);
+        }
+
+        .about-avatar {
+            width: 130px;
+            height: 130px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #776cff,
+                    #35d5ff
+                );
+
+            font-size: 3rem;
+            font-weight: 900;
+
+            box-shadow:
+                0 0 60px rgba(101, 87, 255, 0.3);
+        }
+
+        .about-text {
+            color: #a6aec1;
+            font-size: 1.02rem;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        /* =========================================
+           8. PROJECTS
+        ========================================= */
+
+        .projects-header {
+            margin-bottom: 45px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            position: relative;
+
+            min-height: 390px;
+
+            padding: 30px;
+
+            display: flex;
+            flex-direction: column;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.065),
+                    rgba(255, 255, 255, 0.025)
+                );
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            overflow: hidden;
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .project-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 150px;
+            height: 150px;
+
+            top: -70px;
+            right: -70px;
+
+            border-radius: 50%;
+
+            background: #7064ff;
+
+            filter: blur(70px);
+
+            opacity: 0;
+
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+
+            border-color: rgba(125, 114, 255, 0.4);
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .project-card:hover::after {
+            opacity: 0.25;
+        }
+
+        .project-number {
+            color: #7770d9;
+
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+
+            margin-bottom: 30px;
+        }
+
+        .project-card h3 {
+            font-size: 1.45rem;
+            margin-bottom: 14px;
+        }
+
+        .project-card p {
+            color: #929aae;
+            font-size: 0.92rem;
+            margin-bottom: 20px;
+        }
+
+        .technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+
+            margin-bottom: 25px;
+        }
+
+        .tech {
+            padding: 5px 9px;
+
+            border-radius: 5px;
+
+            background: rgba(125, 114, 255, 0.1);
+
+            color: #aaa4ff;
+
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .project-card .btn {
+            width: fit-content;
+            margin-top: auto;
+        }
+
+        /* =========================================
+           9. SKILLS
+        ========================================= */
+
+        .skills-container {
+            margin-top: 45px;
+
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .skill-card {
+            min-height: 150px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 20px;
+
+            border-radius: 16px;
+
+            background: rgba(255, 255, 255, 0.035);
+
+            border: 1px solid rgba(255, 255, 255, 0.07);
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+
+            background: rgba(125, 114, 255, 0.08);
+
+            border-color: rgba(125, 114, 255, 0.3);
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: rgba(125, 114, 255, 0.1);
+
+            color: #aaa4ff;
+
+            font-size: 0.8rem;
+            font-weight: 900;
+
+            margin-bottom: 14px;
+        }
+
+        .skill-card h3 {
+            font-size: 0.9rem;
+        }
+
+        /* =========================================
+           10. CONTACT
+        ========================================= */
+
+        .contact {
+            padding-bottom: 80px;
+        }
+
+        .contact-box {
+            position: relative;
+
+            padding: 60px;
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(125, 114, 255, 0.13),
+                    rgba(0, 190, 255, 0.06)
+                );
+
+            border: 1px solid rgba(255, 255, 255, 0.09);
+
+            overflow: hidden;
+        }
+
+        .contact-box::before {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            top: -150px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            border-radius: 50%;
+
+            background: #776cff;
+
+            filter: blur(100px);
+
+            opacity: 0.15;
+        }
+
+        .contact-box h2 {
+            position: relative;
+
+            font-size: clamp(2rem, 5vw, 3.5rem);
+
+            margin-bottom: 15px;
+        }
+
+        .contact-box > p {
+            position: relative;
+
+            color: #9ba3b7;
+
+            max-width: 600px;
+
+            margin: 0 auto 30px;
+        }
+
+        .contact-info {
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-bottom: 30px;
+        }
+
+        .contact-link {
+            padding: 12px 17px;
+
+            border-radius: 9px;
+
+            background: rgba(255, 255, 255, 0.05);
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            color: #dce0ec;
+
+            font-size: 0.9rem;
+
+            transition: 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+
+            transform: translateY(-3px);
+        }
+
+        /* =========================================
+           11. FOOTER
+        ========================================= */
+
+        footer {
+            padding: 30px 0 40px;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+            text-align: center;
+
+            color: #666e82;
+
+            font-size: 0.82rem;
+        }
+
+        /* =========================================
+           12. SCROLL ANIMATIONS
+        ========================================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           13. MOBILE
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-card {
+                min-height: 250px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                padding: 15px 0;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links li:nth-child(2),
+            .nav-links li:nth-child(3) {
+                display: none;
+            }
+
+            .hero {
+                min-height: 90vh;
+                padding-top: 110px;
+            }
+
+            .hero h1 {
+                font-size: clamp(4rem, 22vw, 6rem);
+                letter-spacing: -5px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-box {
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .skill-card {
+                min-height: 130px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================
+         BACKGROUND
+    ========================================= -->
+
+    <div class="background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
+
+    <nav class="navbar">
+        <div class="container nav-inner">
+
+            <a href="#home" class="logo">
+                R<span>.</span>
+            </a>
+
+            <ul class="nav-links">
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <main id="home">
+
+        <section class="hero">
+            <div class="container">
+
+                <div class="hero-content reveal">
+
+                    <div class="eyebrow">
+                        Available for freelance work
+                    </div>
+
+                    <h1>
+                        <span class="gradient-text">REN</span>
+                    </h1>
+
+                    <h2>
+                        Freelance Web Developer
+                    </h2>
+
+                    <p class="hero-description">
+                        I build modern, responsive, and user-friendly websites
+                        that turn ideas into clean digital experiences.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#projects"
+                            class="btn btn-primary"
+                        >
+                            View My Work →
+                        </a>
+
+                        <a
+                            href="#contact"
+                            class="btn btn-secondary"
+                        >
+                            Let's Talk
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             ABOUT
+        ========================================= -->
+
+        <section id="about" class="about">
+
+            <div class="container">
+
+                <div class="about-grid">
+
+                    <div class="about-card reveal">
+                        <div class="about-avatar">
+                            R
+                        </div>
+                    </div>
+
+                    <div class="reveal">
+
+                        <div class="section-label">
+                            About Me
+                        </div>
+
+                        <h2 class="section-title">
+                            I enjoy turning ideas into websites.
+                        </h2>
+
+                        <div class="about-text">
+
+                            <p>
+                                Hi, I'm <strong>Ren</strong>, a freelance web
+                                developer who enjoys creating clean,
+                                responsive, and visually engaging websites.
+                            </p>
+
+                            <p>
+                                I'm interested in the intersection between
+                                design and technology. I enjoy taking an idea,
+                                breaking it down into smaller pieces, and
+                                turning it into a functional website that
+                                people can actually use.
+                            </p>
+
+                            <p>
+                                Whether it's a personal portfolio, business
+                                website, landing page, or web application,
+                                my goal is to create experiences that look
+                                great and work smoothly across different
+                                devices.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             PROJECTS
+        ========================================= -->
+
+        <section id="projects" class="projects">
+
+            <div class="container">
+
+                <div class="projects-header reveal">
+
+                    <div class="section-label">
+                        My Work
+                    </div>
+
+                    <h2 class="section-title">
+                        Selected Projects
+                    </h2>
+
+                    <p class="section-description">
+                        Here are a few examples of the kinds of digital
+                        experiences I enjoy building.
+                    </p>
+
+                </div>
+
+
+                <div class="project-grid">
+
+                    <!-- PROJECT 1 -->
+
+                    <article class="project-card reveal">
+
+                        <div class="project-number">
+                            PROJECT 01
+                        </div>
+
+                        <h3>
+                            Personal Portfolio
+                        </h3>
+
+                        <p>
+                            A modern personal portfolio designed to showcase
+                            skills, experience, projects, and professional
+                            information in a clean and engaging way.
+                        </p>
+
+                        <div class="technologies">
+                            <span class="tech">HTML</span>
+                            <span class="tech">CSS</span>
+                            <span class="tech">JavaScript</span>
+                            <span class="tech">Responsive Design</span>
+                        </div>
+
+                        <a
+                            href="#contact"
+                            class="btn btn-secondary"
+                        >
+                            View Project →
+                        </a>
+
+                    </article>
+
+
+                    <!-- PROJECT 2 -->
+
+                    <article class="project-card reveal">
+
+                        <div class="project-number">
+                            PROJECT 02
+                        </div>
+
+                        <h3>
+                            Business Landing Page
+                        </h3>
+
+                        <p>
+                            A professional landing page focused on presenting
+                            a company's services, building trust, and
+                            encouraging visitors to take action.
+                        </p>
+
+                        <div class="technologies">
+                            <span class="tech">HTML</span>
+                            <span class="tech">CSS</span>
+                            <span class="tech">JavaScript</span>
+                            <span class="tech">UI Design</span>
+                        </div>
+
+                        <a
+                            href="#contact"
+                            class="btn btn-secondary"
+                        >
+                            View Project →
+                        </a>
+
+                    </article>
+
+
+                    <!-- PROJECT 3 -->
+
+                    <article class="project-card reveal">
+
+                        <div class="project-number">
+                            PROJECT 03
+                        </div>
+
+                        <h3>
+                            Management Dashboard
+                        </h3>
+
+                        <p>
+                            A responsive dashboard interface designed to
+                            organize information, display useful statistics,
+                            and provide an intuitive user experience.
+                        </p>
+
+                        <div class="technologies">
+                            <span class="tech">HTML</span>
+                            <span class="tech">CSS</span>
+                            <span class="tech">JavaScript</span>
+                            <span class="tech">Dashboard UI</span>
+                        </div>
+
+                        <a
+                            href="#contact"
+                            class="btn btn-secondary"
+                        >
+                            View Project →
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SKILLS
+        ========================================= -->
+
+        <section id="skills" class="skills">
+
+            <div class="container">
+
+                <div class="reveal">
+
+                    <div class="section-label">
+                        Skills
+                    </div>
+
+                    <h2 class="section-title">
+                        What I Work With
+                    </h2>
+
+                    <p class="section-description">
+                        The technologies and development skills I use to
+                        create modern web experiences.
+                    </p>
+
+                </div>
+
+
+                <div class="skills-container">
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon">
+                            HTML
+                        </div>
+                        <h3>HTML</h3>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon">
+                            CSS
+                        </div>
+                        <h3>CSS</h3>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon">
+                            JS
+                        </div>
+                        <h3>JavaScript</h3>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon">
+                            GIT
+                        </div>
+                        <h3>Git / GitHub</h3>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon">
+                            RWD
+                        </div>
+                        <h3>Responsive Design</h3>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             CONTACT
+        ========================================= -->
+
+        <section id="contact" class="contact">
+
+            <div class="container">
+
+                <div class="contact-box reveal">
+
+                    <div class="section-label">
+                        Get In Touch
+                    </div>
+
+                    <h2>
+                        Have an idea?
+                        <br>
+                        Let's build it.
+                    </h2>
+
+                    <p>
+                        I'm always interested in hearing about new projects,
+                        ideas, and opportunities. Feel free to reach out.
+                    </p>
+
+
+                    <div class="contact-info">
+
+                        <!-- CHANGE THIS EMAIL -->
+
+                        <a
+                            class="contact-link"
+                            href="mailto:your.email@example.com"
+                        >
+                            ✉ your.email@example.com
+                        </a>
+
+                        <!-- CHANGE THIS FACEBOOK LINK -->
+
+                        <a
+                            class="contact-link"
+                            href="https://facebook.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Facebook
+                        </a>
+
+                        <!-- CHANGE THIS LINKEDIN LINK -->
+
+                        <a
+                            class="contact-link"
+                            href="https://www.linkedin.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            LinkedIn
+                        </a>
+
+                    </div>
+
+
+                    <a
+                        href="mailto:your.email@example.com"
+                        class="btn btn-primary"
+                    >
+                        Contact Me →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+        <div class="container">
+            © <span id="year"></span> REN. All rights reserved.
+        </div>
+    </footer>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        /* -----------------------------------------
+           AUTOMATIC YEAR
+        ----------------------------------------- */
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+
+        /* -----------------------------------------
+           SCROLL REVEAL ANIMATION
+        ----------------------------------------- */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const revealObserver =
+            new IntersectionObserver(
+                (entries, observer) => {
+
+                    entries.forEach((entry) => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("visible");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach((element) => {
+
+            revealObserver.observe(element);
+
+        });
+
+
+        /* -----------------------------------------
+           SMOOTH NAVIGATION
+        ----------------------------------------- */
+
+        document.querySelectorAll(
+            'a[href^="#"]'
+        ).forEach((link) => {
+
+            link.addEventListener("click", function (event) {
+
+                const targetId =
+                    this.getAttribute("href");
+
+                const target =
+                    document.querySelector(targetId);
+
+                if (target) {
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
+```
